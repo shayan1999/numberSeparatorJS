@@ -1,0 +1,21 @@
+{
+  "name": "number-separator-js",
+  "version": "0.1.0",
+  "description": "this library will help you to separate numbers in string variables",
+  "scripts": {
+    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayan1999/numberSeparatorJS.git"
+  },
+  "author": "Ali Rostami <ali.rostami.1999@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shayan1999/numberSeparatorJS/issues"
+  },
+  "homepage": "https://github.com/shayan1999/numberSeparatorJS#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
