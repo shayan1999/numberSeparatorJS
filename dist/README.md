@@ -40,18 +40,18 @@ console.log(seprateStringNumber(text));
 
 #### Separate every number in your string
 
-```http
-  numberSeparator({
-    text: "-2313.12$ and 234$",
-    // it is your main input
-    fixed: 3,
-    // it will work just like toFixed(x) of js
-    seprateMore: false,
-    // it will seprate your decimal part too
-    symbol: ","
-    // you can change separator symbol here
-  })
-  // it will return "-2,313.12$ and 234$"
+```javascript
+numberSeparator({
+  text: "-2313.12$ and 234$",
+  // it is your main input
+  fixed: 3,
+  // it will work just like toFixed(x) of js
+  seprateMore: false,
+  // it will seprate your decimal part too
+  symbol: ",",
+  // you can change separator symbol here
+});
+// it will return "-2,313.12$ and 234$"
 ```
 
 | Parameter     | Type      | Description               |
@@ -63,8 +63,8 @@ console.log(seprateStringNumber(text));
 
 #### get numeric and nonNumeric parts of string
 
-```http
-  seprateStringNumber("-2313.12$ and 234$");
+```javascript
+seprateStringNumber("-2313.12$ and 234$");
 /*
 it will return
     {
@@ -72,7 +72,6 @@ it will return
       nonNumericParts: ["$ and ", "$"]
     }
 */
-
 ```
 
 | Parameter | Type     | Description              |

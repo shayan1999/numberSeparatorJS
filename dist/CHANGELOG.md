@@ -1,2 +1,5 @@
+- readme refrence problems
+- fixed type problem on readme file
+- types added
 - first version of project
 - first version of project
