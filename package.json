@@ -1,6 +1,6 @@
 {
   "name": "number-separator-js",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "this library will help you to separate numbers in string variables",
   "scripts": {
     "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json",
