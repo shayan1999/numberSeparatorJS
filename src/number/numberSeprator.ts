@@ -1,7 +1,5 @@
 import {
   numberSeparatorProps,
-  numberSeparatorFuncType,
-  seprateStringNumberType,
 } from "./types";
 import {
   separateNumbersAndText,
@@ -9,7 +7,7 @@ import {
   removeEmptyItems,
 } from "./utils";
 
-export const numberSeparator: numberSeparatorFuncType = ({
+export const numberSeparator = ({
   text,
   fixed = null,
   seprateMore = false,
@@ -17,11 +15,9 @@ export const numberSeparator: numberSeparatorFuncType = ({
 }: numberSeparatorProps) => {
   const { nonNumericParts, numericParts, startWithNumber } =
     separateNumbersAndText(text);
-
   let localNumeric: string[] = [...numericParts];
-
   for (let i = 0; i < localNumeric.length; i++) {
-    let localNumber = localNumeric[i];
+    let localNumber = `${Number(localNumeric[i])}`;
 
     if (fixed !== null && fixed !== undefined) {
       localNumber = `${Number(localNumber).toFixed(fixed)}`;
@@ -37,14 +33,14 @@ export const numberSeparator: numberSeparatorFuncType = ({
 
   const result: string = joinNumbersAndText(
     localNumeric,
-    nonNumericParts,
+    removeEmptyItems(nonNumericParts),
     startWithNumber
   );
 
   return result;
 };
 
-export const seprateStringNumber: seprateStringNumberType = (
+export const seprateStringNumber = (
   inputString: string
 ) => {
   const { numericParts, nonNumericParts } = separateNumbersAndText(inputString);

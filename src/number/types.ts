@@ -5,7 +5,7 @@ export type numberSeparatorProps = {
   symbol?: string;
 };
 
-export type numberSeparatorFuncType = (numberSeparatorProps) => string;
+export type numberSeparatorFuncType = (numberSeparatorFuncType) => string;
 
 export type seprateStringNumberType = (inputString: string) => {
   numericParts: string[];
