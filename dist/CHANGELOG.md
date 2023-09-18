@@ -1,3 +1,6 @@
+- demo added
+- Merge pull request #3 from shayan1999/readmeFix-version-0.2.1
+- readme fixed and version updated to version 0.2.1
 - Merge pull request #1 from shayan1999/shayan1999-patch-1
 - Update node.js.yml
 - Update node.js.yml

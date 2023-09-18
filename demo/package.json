@@ -1,0 +1,15 @@
+{
+  "name": "demo-number-separator",
+  "source": "./index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build ./index.html --no-optimize  --public-url ./",
+    "prebuild": "rm -rf dist/*"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "number-separator-js": "^0.2.2"
+  }
+}
