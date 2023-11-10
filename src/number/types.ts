@@ -1,13 +1,13 @@
 export type numberSeparatorProps = {
   text: string;
   fixed?: number;
-  seprateMore?: boolean;
+  separateMore?: boolean;
   symbol?: string;
 };
 
 export type numberSeparatorFuncType = (numberSeparatorFuncType) => string;
 
-export type seprateStringNumberType = (inputString: string) => {
+export type separateStringNumberType = (inputString: string) => {
   numericParts: string[];
   nonNumericParts: string[];
 };

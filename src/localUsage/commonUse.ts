@@ -1,3 +1,3 @@
-import {numberSeparator, seprateStringNumber} from "../index";
+import { numberSeparator, separateStringNumber } from "../index";
 
-console.log(numberSeparator({text: '-0000.12'}));
+console.log(numberSeparator({ text: "-0000.12" }));

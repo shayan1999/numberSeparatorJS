@@ -1,1 +1,4 @@
-export {numberSeparator, seprateStringNumber} from './number/numberSeprator'
+export {
+  numberSeparator,
+  separateStringNumber,
+} from "./number/numberseparator";

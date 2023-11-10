@@ -10,7 +10,7 @@ import {
 export const numberSeparator = ({
   text,
   fixed = null,
-  seprateMore = false,
+  separateMore = false,
   symbol = ",",
 }: numberSeparatorProps) => {
   const { nonNumericParts, numericParts, startWithNumber } =
@@ -25,7 +25,7 @@ export const numberSeparator = ({
 
     const parts: string[] = localNumber.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, symbol);
-    if (seprateMore && parts[1]) {
+    if (separateMore && parts[1]) {
       parts[1] = parts[1].replace(/\B(?=(\d{3})+(?!\d))/g, symbol);
     }
     localNumeric[i] = parts.join(".");
@@ -40,7 +40,7 @@ export const numberSeparator = ({
   return result;
 };
 
-export const seprateStringNumber = (
+export const separateStringNumber = (
   inputString: string
 ) => {
   const { numericParts, nonNumericParts } = separateNumbersAndText(inputString);

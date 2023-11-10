@@ -1,122 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My First Parcel App</title>
     <script type="module" src="assets/js/numberSeparator.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3">
-          <div class="col-md-6 col-sm-12 d-flex flex-column ">
+        <div
+          class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3"
+        >
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>text field</label>
-            <input oninput="onTextChange('text')" value="1234" type="text" id="text-input" placeholder="text"/>
+            <input
+              oninput="onTextChange('text')"
+              value="1234"
+              type="text"
+              id="text-input"
+              placeholder="text"
+            />
           </div>
           <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>symbol</label>
-            <input oninput="onTextChange('symbol')" value="," type="text" id="symbol-input" placeholder="symbol(default is ,)"/>
+            <input
+              oninput="onTextChange('symbol')"
+              value=","
+              type="text"
+              id="symbol-input"
+              placeholder="symbol(default is ,)"
+            />
           </div>
           <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>fix digits</label>
-            <input oninput="onNumberChange()" value="2" type="number" id="fixed-input" placeholder="default is empty and do nothing"/>
+            <input
+              oninput="onNumberChange()"
+              value="2"
+              type="number"
+              id="fixed-input"
+              placeholder="default is empty and do nothing"
+            />
           </div>
           <div class="col-md-6 col-sm-12 ps-4">
             <label for="more">separate decimal parts</label>
-            <input onchange="onCheckBoxChange()" id="more" type="checkbox">
+            <input onchange="onCheckBoxChange()" id="more" type="checkbox" />
           </div>
         </div>
-        <div class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3">
+        <div
+          class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3"
+        >
           <span class="yellow-text">
-            numberSeparator<span class="purple-symbol">(<span class="blue-symbol">{</span></span>
+            numberSeparator<span class="purple-symbol"
+              >(<span class="blue-symbol">{</span></span
+            >
           </span>
           <span class="ms-4 attribute-color">
-            text: <span class="item-color" id="text-json">"1234"</span><span class="white-color" > ,</span>
+            text: <span class="item-color" id="text-json">"1234"</span
+            ><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            symbol: <span class="item-color" id="symbol-json">","</span><span class="white-color" > ,</span>
+            symbol: <span class="item-color" id="symbol-json">","</span
+            ><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            fixed: <span id="fixed-json" class="item-color">2</span><span class="white-color" > ,</span>
+            fixed: <span id="fixed-json" class="item-color">2</span
+            ><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            seprateMore: <span id="separateMore-json" class="item-color">false</span><span class="white-color" > ,</span>
+            separateMore:
+            <span id="separateMore-json" class="item-color">false</span
+            ><span class="white-color"> ,</span>
           </span>
           <span class="purple-symbol">
             <span class="blue-symbol">)</span>}
           </span>
-          <br/>
-          <span class="white-color" id="output">
-            Result: 1,234.00
-          </span>
+          <br />
+          <span class="white-color" id="output"> Result: 1,234.00 </span>
         </div>
-        <div class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3">
-          <div class="col-md-6 col-sm-12 d-flex flex-column ">
+        <div
+          class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3"
+        >
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>text field</label>
-            <input oninput="onOnlyTextChange('text2')" value="1234" type="text" id="text2-input" placeholder="text"/>
+            <input
+              oninput="onOnlyTextChange('text2')"
+              value="1234"
+              type="text"
+              id="text2-input"
+              placeholder="text"
+            />
           </div>
         </div>
-        <div class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3">
+        <div
+          class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3"
+        >
           <span class="yellow-text">
-            seprateStringNumber<span class="purple-symbol">(</span><span id="text2-json" class="item-color">"1234"</span><span class="purple-symbol">)</span>
+            separateStringNumber<span class="purple-symbol">(</span
+            ><span id="text2-json" class="item-color">"1234"</span
+            ><span class="purple-symbol">)</span>
           </span>
-          <br/>
+          <br />
           <span class="white-color" id="output2">
-            Result:  {"numericParts":["1234"],"nonNumericParts":[]}
+            Result: {"numericParts":["1234"],"nonNumericParts":[]}
           </span>
         </div>
       </div>
-
     </div>
 
     <script>
-      var checkbox= false;
-      function generateOutput(){
-          const text= document.getElementById(`text-input`).value;
-          const symbol= document.getElementById(`symbol-input`).value || undefined;
-          const fixed= document.getElementById(`fixed-input`).value || undefined;
+      var checkbox = false;
+      function generateOutput() {
+        const text = document.getElementById(`text-input`).value;
+        const symbol =
+          document.getElementById(`symbol-input`).value || undefined;
+        const fixed = document.getElementById(`fixed-input`).value || undefined;
 
-          const result= separate(text, symbol, fixed, checkbox);
-          document.getElementById('output').textContent=`Result: ${result}`;
+        const result = separate(text, symbol, fixed, checkbox);
+        document.getElementById("output").textContent = `Result: ${result}`;
       }
-      function onTextChange(type){
-        if(type === 'symbol' && !document.getElementById(`${type}-input`).value){
-          document.getElementById(`${type}-json`).textContent= 'undefined';
-        }else{
-          document.getElementById(`${type}-json`).textContent= `"${document.getElementById(`${type}-input`).value}"`;
+      function onTextChange(type) {
+        if (
+          type === "symbol" &&
+          !document.getElementById(`${type}-input`).value
+        ) {
+          document.getElementById(`${type}-json`).textContent = "undefined";
+        } else {
+          document.getElementById(`${type}-json`).textContent = `"${
+            document.getElementById(`${type}-input`).value
+          }"`;
         }
-        generateOutput()
+        generateOutput();
       }
-      function onNumberChange(){
-        if(!document.getElementById(`fixed-input`).value){
-          document.getElementById(`fixed-json`).textContent= 'undefined';
-        }else{
-          document.getElementById(`fixed-json`).textContent= `"${document.getElementById(`fixed-input`).value}"`;
+      function onNumberChange() {
+        if (!document.getElementById(`fixed-input`).value) {
+          document.getElementById(`fixed-json`).textContent = "undefined";
+        } else {
+          document.getElementById(`fixed-json`).textContent = `"${
+            document.getElementById(`fixed-input`).value
+          }"`;
         }
-        generateOutput()
+        generateOutput();
       }
-      function onCheckBoxChange(){
-        checkbox= !checkbox;
-        document.getElementById('separateMore-json').textContent= checkbox;
+      function onCheckBoxChange() {
+        checkbox = !checkbox;
+        document.getElementById("separateMore-json").textContent = checkbox;
         generateOutput();
       }
 
       // --------
 
-      function onOnlyTextChange(){
-          document.getElementById(`text2-json`).textContent= `"${document.getElementById(`text2-input`).value}"`;
-          generateOtherOutput()
+      function onOnlyTextChange() {
+        document.getElementById(`text2-json`).textContent = `"${
+          document.getElementById(`text2-input`).value
+        }"`;
+        generateOtherOutput();
       }
 
-      function generateOtherOutput(){
-        const result= getSeparateItems(document.getElementById(`text2-input`).value);
+      function generateOtherOutput() {
+        const result = getSeparateItems(
+          document.getElementById(`text2-input`).value
+        );
         console.log(result);
-        document.getElementById('output2').textContent=`Result: ${JSON.stringify(result)}`;
+        document.getElementById(
+          "output2"
+        ).textContent = `Result: ${JSON.stringify(result)}`;
       }
-  </script>
+    </script>
   </body>
 </html>
