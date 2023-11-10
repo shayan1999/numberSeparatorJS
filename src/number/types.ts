@@ -25,3 +25,10 @@ export type joinNumbersAndTextType = (
   nonNumericParts: string[],
   startWithNumber: boolean
 ) => string;
+
+export type removeUselessZerosPropsType = {
+  number: string | number;
+  returnType?: "string" | "number";
+  acceptDecimal?: boolean;
+  fixed?: number;
+};

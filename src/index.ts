@@ -1,4 +1,5 @@
 export {
   numberSeparator,
   separateStringNumber,
-} from "./number/numberseparator";
+  removeUselessZeros,
+} from "./number/numberSeparator";
