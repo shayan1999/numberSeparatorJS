@@ -1,13 +1,13 @@
 export type numberSeparatorProps = {
   text: string;
   fixed?: number;
-  seprateMore?: boolean;
+  separateMore?: boolean;
   symbol?: string;
 };
 
 export type numberSeparatorFuncType = (numberSeparatorFuncType) => string;
 
-export type seprateStringNumberType = (inputString: string) => {
+export type separateStringNumberType = (inputString: string) => {
   numericParts: string[];
   nonNumericParts: string[];
 };
@@ -25,3 +25,10 @@ export type joinNumbersAndTextType = (
   nonNumericParts: string[],
   startWithNumber: boolean
 ) => string;
+
+export type removeUselessZerosPropsType = {
+  number: string | number;
+  returnType?: "string" | "number";
+  acceptDecimal?: boolean;
+  fixed?: number;
+};

@@ -1,6 +1,4 @@
-import {
-  numberSeparatorProps,
-} from "./types";
+import { numberSeparatorProps, removeUselessZerosPropsType } from "./types";
 import {
   separateNumbersAndText,
   joinNumbersAndText,
@@ -10,7 +8,7 @@ import {
 export const numberSeparator = ({
   text,
   fixed = null,
-  seprateMore = false,
+  separateMore = false,
   symbol = ",",
 }: numberSeparatorProps) => {
   const { nonNumericParts, numericParts, startWithNumber } =
@@ -25,7 +23,7 @@ export const numberSeparator = ({
 
     const parts: string[] = localNumber.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, symbol);
-    if (seprateMore && parts[1]) {
+    if (separateMore && parts[1]) {
       parts[1] = parts[1].replace(/\B(?=(\d{3})+(?!\d))/g, symbol);
     }
     localNumeric[i] = parts.join(".");
@@ -40,9 +38,7 @@ export const numberSeparator = ({
   return result;
 };
 
-export const seprateStringNumber = (
-  inputString: string
-) => {
+export const separateStringNumber = (inputString: string) => {
   const { numericParts, nonNumericParts } = separateNumbersAndText(inputString);
   const noneNumericPartsRemovedEmpty = removeEmptyItems(nonNumericParts);
 
@@ -50,4 +46,24 @@ export const seprateStringNumber = (
     numericParts,
     nonNumericParts: removeEmptyItems(noneNumericPartsRemovedEmpty),
   };
+};
+
+export const removeUselessZeros = ({
+  number,
+  returnType = "string",
+  acceptDecimal = true,
+  fixed = 3,
+}: removeUselessZerosPropsType): string | number => {
+  const stringNumber = number.toString();
+
+  if (stringNumber.length <= 2 && stringNumber.includes(".")) {
+    return stringNumber;
+  }
+
+  const truncatedNumber = acceptDecimal ? +number : Math.trunc(+number);
+  const toFixedString = truncatedNumber.toFixed(fixed).toString();
+
+  let newAmount = parseFloat(toFixedString);
+  const result = returnType === "string" ? String(newAmount) : newAmount;
+  return result;
 };

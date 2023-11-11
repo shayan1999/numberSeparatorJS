@@ -1,1 +1,5 @@
-export {numberSeparator, seprateStringNumber} from './number/numberSeprator'
+export {
+  numberSeparator,
+  separateStringNumber,
+  removeUselessZeros,
+} from "./number/numberSeparator";

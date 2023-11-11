@@ -6,6 +6,8 @@ Welcome to Number Separator JS, the library that makes working with numbers in s
 
 2. `separateStringNumber`: This function takes a complete string and returns an object with two attributes: `numericParts` (an array of numeric parts) and `nonNumericParts` (an array of non-numeric parts).
 
+3. `removeUselessZeros`: This function take an numeric amount(called number but it can be a number or string) and If the number is decimal, Deletes useless zeros after the decimal point.
+
 by the way you can use this library on both CommonJs and Es6 Modules!
 
 ## Demo
