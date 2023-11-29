@@ -1,31 +1,31 @@
 {
-    "name": "number-separator-js",
-    "version": "0.3.0",
-    "description": "this library will help you to separate numbers in string variables",
-    "main": "lib/es5/index.js",
-    "module": "lib/es6/index.js",
-    "sideEffects": false,
-    "repository":{
-        "type": "git",
-        "ur'": "git+https://github.com/shayan1999/numberSeparatorJS.git"
-    }, 
-    "files": [
-        "lib",
-        "CHANGELOG.md",
-        "LICENSE",
-        "package.json",
-        "README.md"
-    ], 
-    "keywords": [
-        "javascript",
-        "number",
-        "separator",
-        "typescript"
-    ],
-    "author": "Ali Rostami <ali.rostami.1999@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/shayan1999/numberSeparatorJS/issues"
-    },
-    "homepage": "https://github.com/shayan1999/numberSeparatorJS#readme"
+  "name": "number-separator-js",
+  "version": "1.0.1",
+  "description": "this library will help you to separate numbers in string variables",
+  "main": "lib/es5/index.js",
+  "module": "lib/es6/index.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayan1999/numberSeparatorJS.git"
+  },
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "javascript",
+    "number",
+    "separator",
+    "typescript"
+  ],
+  "author": "Ali Rostami <ali.rostami.1999@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shayan1999/numberSeparatorJS/issues"
+  },
+  "homepage": "https://github.com/shayan1999/numberSeparatorJS#readme"
 }

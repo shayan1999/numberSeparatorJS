@@ -1,3 +1,11 @@
+- Merge pull request #6 from shayan1999/remove-useless-zero
+- new feature added to readme and more
+- Merge pull request #5 from mary139/main
+- fix:readme-description
+- feat:removeUselessZeros
+- fix:seprate-to-separat
+- Merge pull request #4 from shayan1999/demo
+- demo added
 - demo added
 - Merge pull request #3 from shayan1999/readmeFix-version-0.2.1
 - readme fixed and version updated to version 0.2.1

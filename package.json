@@ -1,6 +1,6 @@
 {
   "name": "number-separator-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://shayan1999.github.io/numberSeparatorJS",
   "description": "this library will help you to separate numbers in string variables",
   "scripts": {

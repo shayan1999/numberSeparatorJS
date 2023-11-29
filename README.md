@@ -1,4 +1,4 @@
-# Number Separator JS v0.3.0
+# Number Separator JS v1.0.1
 
 Welcome to Number Separator JS, the library that makes working with numbers in string format a breeze. This library offers essential functionality to manipulate and format numbers within a string. Currently, it exports two main functions:
 
