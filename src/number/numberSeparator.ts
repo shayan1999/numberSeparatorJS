@@ -10,6 +10,7 @@ export const numberSeparator = ({
   fixed = null,
   separateMore = false,
   symbol = ",",
+  allowUselessZeros = true,
 }: numberSeparatorProps) => {
   const { nonNumericParts, numericParts, startWithNumber } =
     separateNumbersAndText(text);
@@ -19,6 +20,13 @@ export const numberSeparator = ({
 
     if (fixed !== null && fixed !== undefined) {
       localNumber = `${Number(localNumber).toFixed(fixed)}`;
+    }
+
+    if (!allowUselessZeros) {
+      localNumber = `${removeUselessZeros({
+        number: localNumber,
+        returnType: "string",
+      })}`;
     }
 
     const parts: string[] = localNumber.toString().split(".");

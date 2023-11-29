@@ -3,6 +3,7 @@ export type numberSeparatorProps = {
   fixed?: number;
   separateMore?: boolean;
   symbol?: string;
+  allowUselessZeros?: boolean;
 };
 
 export type numberSeparatorFuncType = (numberSeparatorFuncType) => string;
