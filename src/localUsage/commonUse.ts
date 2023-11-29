@@ -1,3 +1,5 @@
-import { numberSeparator, separateStringNumber } from "../index";
+import { numberSeparator, removeUselessZeros } from "../index";
 
-console.log(numberSeparator({ text: "-0000.12" }));
+console.log(
+  numberSeparator({ text: "123.2402", fixed: 3, allowUselessZeros: false })
+);
