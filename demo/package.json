@@ -10,6 +10,6 @@
     "parcel": "^2.9.3"
   },
   "dependencies": {
-    "number-separator-js": "^0.2.2"
+    "number-separator-js": "^1.0.1"
   }
 }
