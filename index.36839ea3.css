@@ -1,4 +1,4 @@
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], select {
   border: 1px solid gray;
   border-radius: 8px;
   margin: 10px;
@@ -47,4 +47,4 @@ button:hover {
   opacity: .7;
 }
 
-/*# sourceMappingURL=index.61fa6f46.css.map */
+/*# sourceMappingURL=index.36839ea3.css.map */

@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My First Parcel App</title>
-    <script type="module" src="index.94f5c634.js"></script>
-    <link rel="stylesheet" href="index.61fa6f46.css">
+    <script type="module" src="index.b1223deb.js"></script>
+    <link rel="stylesheet" href="index.36839ea3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </head>
@@ -13,7 +13,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3">
-          <div class="col-md-6 col-sm-12 d-flex flex-column ">
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>text field</label>
             <input oninput="onTextChange('text')" value="1234" type="text" id="text-input" placeholder="text">
           </div>
@@ -23,11 +23,17 @@
           </div>
           <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>fix digits</label>
-            <input oninput="onNumberChange()" value="2" type="number" id="fixed-input" placeholder="default is empty and do nothing">
+            <input oninput="onNumberChange(1)" value="2" type="number" id="fixed1-input" placeholder="default is empty and do nothing">
           </div>
           <div class="col-md-6 col-sm-12 ps-4">
-            <label for="more">separate decimal parts</label>
-            <input onchange="onCheckBoxChange()" id="more" type="checkbox">
+            <div class="col-12">
+              <label for="more">separate decimal parts</label>
+              <input onchange="onCheckBoxChange('separateMore')" id="more" type="checkbox">
+            </div>
+            <div class="col-12">
+              <label for="more">allow useless zeros</label>
+              <input onchange="onCheckBoxChange('allowUselessZeros')" id="more" type="checkbox">
+            </div>
           </div>
         </div>
         <div class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3">
@@ -41,60 +47,126 @@
             symbol: <span class="item-color" id="symbol-json">","</span><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            fixed: <span id="fixed-json" class="item-color">2</span><span class="white-color"> ,</span>
+            fixed: <span id="fixed1-json" class="item-color">2</span><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            seprateMore: <span id="separateMore-json" class="item-color">false</span><span class="white-color"> ,</span>
+            separateMore:
+            <span id="separateMore-json" class="item-color">false</span><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            allowUselessZeros:
+            <span id="allowUselessZeros-json" class="item-color">false</span><span class="white-color"> ,</span>
           </span>
           <span class="purple-symbol">
             <span class="blue-symbol">)</span>}
           </span>
           <br>
-          <span class="white-color" id="output">
-            Result: 1,234.00
-          </span>
+          <span class="white-color" id="output"> Result: 1,234.00 </span>
         </div>
         <div class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3">
-          <div class="col-md-6 col-sm-12 d-flex flex-column ">
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>text field</label>
             <input oninput="onOnlyTextChange('text2')" value="1234" type="text" id="text2-input" placeholder="text">
           </div>
         </div>
         <div class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3">
           <span class="yellow-text">
-            seprateStringNumber<span class="purple-symbol">(</span><span id="text2-json" class="item-color">"1234"</span><span class="purple-symbol">)</span>
+            separateStringNumber<span class="purple-symbol">(</span><span id="text2-json" class="item-color">"1234"</span><span class="purple-symbol">)</span>
           </span>
           <br>
           <span class="white-color" id="output2">
-            Result:  {"numericParts":["1234"],"nonNumericParts":[]}
+            Result: {"numericParts":["1234"],"nonNumericParts":[]}
           </span>
         </div>
+        <div class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3">
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>text field</label>
+            <input oninput="onTextChange('number')" value="1234" type="number" id="number-input" placeholder="text">
+          </div>
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>return Type</label>
+            <select id="returnType-input" onchange="onSelectChange('returnType')">
+              <option value="number">number</option>
+              <option value="string">string</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>fix digits</label>
+            <input oninput="onNumberChange(2)" value="2" type="number" id="fixed2-input" placeholder="default is empty and do nothing">
+          </div>
+          <div class="col-md-6 col-sm-12 ps-4">
+            <div class="col-12">
+              <label for="acceptDecimal">accept decimal</label>
+              <input onchange="onCheckBoxChange('acceptDecimal')" id="acceptDecimal" type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3">
+          <span class="yellow-text">
+            removeUselessZeros<span class="purple-symbol">(<span class="blue-symbol">{</span></span>
+          </span>
+          <span class="ms-4 attribute-color">
+            number: <span class="item-color" id="number-json">"1234"</span><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            returnType:
+            <span class="item-color" id="returnType-json">"number"</span><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            acceptDecimal:
+            <span id="acceptDecimal-json" class="item-color">false</span><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            fixed: <span id="fixed2-json" class="item-color">2</span><span class="white-color"> ,</span>
+          </span>
+          <span class="purple-symbol">
+            <span class="blue-symbol">)</span>
+          </span>
+          <br>
+          <span class="white-color" id="output-zero"> Result: 1,234.00 </span>
+        </div>
       </div>
-
     </div>
 
-    <script>var checkbox = false;
+    <script>var checkbox = {
+    separateMore: false,
+    allowUselessZeros: false,
+    acceptDecimal: false
+};
 function generateOutput() {
     const text = document.getElementById(`text-input`).value;
     const symbol = document.getElementById(`symbol-input`).value || undefined;
-    const fixed = document.getElementById(`fixed-input`).value || undefined;
+    const fixed = document.getElementById(`fixed1-input`).value || undefined;
     const result = separate(text, symbol, fixed, checkbox);
     document.getElementById("output").textContent = `Result: ${result}`;
+    const number = Number(document.getElementById("number-input").value);
+    const returnType = document.getElementById("returnType-input").value;
+    const fixed2 = document.getElementById(`fixed2-input`).value || undefined;
+    const result2 = window.removeUseless({
+        number: number,
+        returnType,
+        fixed: fixed2,
+        acceptDecimal: checkbox.acceptDecimal
+    });
+    document.getElementById("output-zero").textContent = `Result: ${result2}`;
 }
 function onTextChange(type) {
     if (type === "symbol" && !document.getElementById(`${type}-input`).value) document.getElementById(`${type}-json`).textContent = "undefined";
     else document.getElementById(`${type}-json`).textContent = `"${document.getElementById(`${type}-input`).value}"`;
     generateOutput();
 }
-function onNumberChange() {
-    if (!document.getElementById(`fixed-input`).value) document.getElementById(`fixed-json`).textContent = "undefined";
-    else document.getElementById(`fixed-json`).textContent = `"${document.getElementById(`fixed-input`).value}"`;
+function onNumberChange(number) {
+    if (!document.getElementById(`fixed${number}-input`).value) document.getElementById(`fixed${number}-json`).textContent = "undefined";
+    else document.getElementById(`fixed${number}-json`).textContent = `"${document.getElementById(`fixed${number}-input`).value}"`;
     generateOutput();
 }
-function onCheckBoxChange() {
-    checkbox = !checkbox;
-    document.getElementById("separateMore-json").textContent = checkbox;
+function onCheckBoxChange(type) {
+    checkbox[type] = !checkbox[type];
+    document.getElementById(`${type}-json`).textContent = `${checkbox[type]}`;
     generateOutput();
+}
+function onSelectChange(type) {
+    document.getElementById(`${type}-json`).textContent = `"${document.getElementById(`${type}-input`).value}"`;
 }
 // --------
 function onOnlyTextChange() {
@@ -103,7 +175,6 @@ function onOnlyTextChange() {
 }
 function generateOtherOutput() {
     const result = getSeparateItems(document.getElementById(`text2-input`).value);
-    console.log(result);
     document.getElementById("output2").textContent = `Result: ${JSON.stringify(result)}`;
 }
 
