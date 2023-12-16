@@ -47,16 +47,30 @@
           <div class="col-md-6 col-sm-12 d-flex flex-column">
             <label>fix digits</label>
             <input
-              oninput="onNumberChange()"
+              oninput="onNumberChange(1)"
               value="2"
               type="number"
-              id="fixed-input"
+              id="fixed1-input"
               placeholder="default is empty and do nothing"
             />
           </div>
           <div class="col-md-6 col-sm-12 ps-4">
-            <label for="more">separate decimal parts</label>
-            <input onchange="onCheckBoxChange()" id="more" type="checkbox" />
+            <div class="col-12">
+              <label for="more">separate decimal parts</label>
+              <input
+                onchange="onCheckBoxChange('separateMore')"
+                id="more"
+                type="checkbox"
+              />
+            </div>
+            <div class="col-12">
+              <label for="more">allow useless zeros</label>
+              <input
+                onchange="onCheckBoxChange('allowUselessZeros')"
+                id="more"
+                type="checkbox"
+              />
+            </div>
           </div>
         </div>
         <div
@@ -76,12 +90,17 @@
             ><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
-            fixed: <span id="fixed-json" class="item-color">2</span
+            fixed: <span id="fixed1-json" class="item-color">2</span
             ><span class="white-color"> ,</span>
           </span>
           <span class="ms-4 attribute-color">
             separateMore:
             <span id="separateMore-json" class="item-color">false</span
+            ><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            allowUselessZeros:
+            <span id="allowUselessZeros-json" class="item-color">false</span
             ><span class="white-color"> ,</span>
           </span>
           <span class="purple-symbol">
@@ -117,19 +136,114 @@
             Result: {"numericParts":["1234"],"nonNumericParts":[]}
           </span>
         </div>
+        <div
+          class="col-md-6 col-sm-12 d-flex row flex-wrap align-items-center mt-3"
+        >
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>text field</label>
+            <input
+              oninput="onTextChange('number')"
+              value="1234"
+              type="number"
+              id="number-input"
+              placeholder="text"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>return Type</label>
+            <select
+              id="returnType-input"
+              onChange="onSelectChange('returnType')"
+            >
+              <option value="number">number</option>
+              <option value="string">string</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12 d-flex flex-column">
+            <label>fix digits</label>
+            <input
+              oninput="onNumberChange(2)"
+              value="2"
+              type="number"
+              id="fixed2-input"
+              placeholder="default is empty and do nothing"
+            />
+          </div>
+          <div class="col-md-6 col-sm-12 ps-4">
+            <div class="col-12">
+              <label for="acceptDecimal">accept decimal</label>
+              <input
+                onchange="onCheckBoxChange('acceptDecimal')"
+                id="acceptDecimal"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-sm-12 json-side-container d-flex flex-column p-3 mt-3"
+        >
+          <span class="yellow-text">
+            removeUselessZeros<span class="purple-symbol"
+              >(<span class="blue-symbol">{</span></span
+            >
+          </span>
+          <span class="ms-4 attribute-color">
+            number: <span class="item-color" id="number-json">"1234"</span
+            ><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            returnType:
+            <span class="item-color" id="returnType-json">"number"</span
+            ><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            acceptDecimal:
+            <span id="acceptDecimal-json" class="item-color">false</span
+            ><span class="white-color"> ,</span>
+          </span>
+          <span class="ms-4 attribute-color">
+            fixed: <span id="fixed2-json" class="item-color">2</span
+            ><span class="white-color"> ,</span>
+          </span>
+          <span class="purple-symbol">
+            <span class="blue-symbol">)</span>
+          </span>
+          <br />
+          <span class="white-color" id="output-zero"> Result: 1,234.00 </span>
+        </div>
       </div>
     </div>
 
     <script>
-      var checkbox = false;
+      var checkbox = {
+        separateMore: false,
+        allowUselessZeros: false,
+        acceptDecimal: false,
+      };
       function generateOutput() {
         const text = document.getElementById(`text-input`).value;
         const symbol =
           document.getElementById(`symbol-input`).value || undefined;
-        const fixed = document.getElementById(`fixed-input`).value || undefined;
+        const fixed =
+          document.getElementById(`fixed1-input`).value || undefined;
 
         const result = separate(text, symbol, fixed, checkbox);
         document.getElementById("output").textContent = `Result: ${result}`;
+
+        const number = Number(document.getElementById("number-input").value);
+        const returnType = document.getElementById("returnType-input").value;
+        const fixed2 =
+          document.getElementById(`fixed2-input`).value || undefined;
+        const result2 = window.removeUseless({
+          number: number,
+          returnType,
+          fixed: fixed2,
+          acceptDecimal: checkbox.acceptDecimal,
+        });
+        document.getElementById(
+          "output-zero"
+        ).textContent = `Result: ${result2}`;
       }
       function onTextChange(type) {
         if (
@@ -144,20 +258,29 @@
         }
         generateOutput();
       }
-      function onNumberChange() {
-        if (!document.getElementById(`fixed-input`).value) {
-          document.getElementById(`fixed-json`).textContent = "undefined";
+      function onNumberChange(number) {
+        if (!document.getElementById(`fixed${number}-input`).value) {
+          document.getElementById(`fixed${number}-json`).textContent =
+            "undefined";
         } else {
-          document.getElementById(`fixed-json`).textContent = `"${
-            document.getElementById(`fixed-input`).value
+          document.getElementById(`fixed${number}-json`).textContent = `"${
+            document.getElementById(`fixed${number}-input`).value
           }"`;
         }
         generateOutput();
       }
-      function onCheckBoxChange() {
-        checkbox = !checkbox;
-        document.getElementById("separateMore-json").textContent = checkbox;
+      function onCheckBoxChange(type) {
+        checkbox[type] = !checkbox[type];
+        document.getElementById(
+          `${type}-json`
+        ).textContent = `${checkbox[type]}`;
         generateOutput();
+      }
+
+      function onSelectChange(type) {
+        document.getElementById(`${type}-json`).textContent = `"${
+          document.getElementById(`${type}-input`).value
+        }"`;
       }
 
       // --------
@@ -173,7 +296,6 @@
         const result = getSeparateItems(
           document.getElementById(`text2-input`).value
         );
-        console.log(result);
         document.getElementById(
           "output2"
         ).textContent = `Result: ${JSON.stringify(result)}`;
